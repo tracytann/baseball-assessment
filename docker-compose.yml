@@ -1,0 +1,14 @@
+version: "3"
+name: baseball-stats-server
+services:
+  app:
+    build:
+      context: "."
+      dockerfile: Dockerfile
+    image: baseball-stats:v1
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/usr/app"
+    command: ["node","index.js"]
